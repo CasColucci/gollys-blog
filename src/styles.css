@@ -1,10 +1,21 @@
 :root {
-  --dark-blue: #2d3047;
-  --yellow: #fffd82;
-  --red: #a63446;
-  --orange: #ff9b71;
-  --pink: #e84855;
-  --white: #ffffff;
+  --paper: #f4ecdb;
+  --paper-2: #ece0c8;
+  --card: #f8f2e5;
+  --ink: #2a251f;
+  --ink-2: #6e6450;
+  --ink-3: #94886e;
+  --line: rgba(42, 37, 31, 0.15);
+  --line-2: rgba(42, 37, 31, 0.28);
+  --sage: #7c8a52;
+  --accent: #cf6a3a;
+  --accent-soft: color-mix(in oklab, var(--accent) 15%, transparent);
+  --accent-line: color-mix(in oklab, var(--accent) 45%, transparent);
+  --pixel: "Pixelify Sans", monospace;
+  --mono: "Space Mono", ui-monospace, monospace;
+  --serif: "Newsreader", Georgia, serif;
+  --gap: 22px;
+  --rowpad: 20px;
 }
 
 @font-face {
@@ -53,7 +64,22 @@ dd {
 
 /* Set Body Background Color */
 body {
-  background-color: var(--dark-blue);
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--mono);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.55;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
@@ -119,29 +145,29 @@ body {
 }
 
 body[data-theme="dark"] {
-  background-color: var(--dark-blue);
-  color: var(--light-blue);
+  background-color: var(--ink);
+  color: var(--paper);
   h1,
   h2,
   h3 {
-    color: var(--white);
+    color: var(--paper);
   }
 }
 
 body[data-theme="light"] {
-  background-color: var(--white);
-  color: var(--dark-blue);
+  background-color: var(--paper);
+  color: var(--ink);
 
   h1,
   h2,
   h3 {
-    color: var(--dark-blue);
+    color: var(--ink);
   }
 }
 
 @media (prefers-color-scheme: dark) {
   body {
-    background-color: var(--dark-blue);
+    background-color: var(--ink);
     color: var(--white);
   }
 
