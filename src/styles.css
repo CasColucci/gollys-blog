@@ -148,3 +148,8 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
+
+button {
+  background: none;
+  border: none;
+}

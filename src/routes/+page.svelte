@@ -1,11 +1,51 @@
-<script>
+<script lang="ts">
+    import type { PageData } from './$types';
+    import type { Post } from './+page.server';
+
+    let { data }: { data: PageData } = $props();
+
+    let posts: Post[] = $derived(data.posts);
+    let activeTag = $state<string | null>(null);
+    let activeProject = $state<string | null>(null);
+
+    let filtered = $derived(
+        posts.filter(p => {
+            if (activeTag && !p.tags.includes(activeTag)) return false;
+            if (activeProject && p.project !== activeProject) return false;
+            return true;
+        })
+    );
+
+    let count = $derived(filtered.length);
+
+    // Build tag list with counts from all posts
+    let tagCounts = $derived(
+        posts.reduce<Record<string, number>>((acc, p) => {
+            for (const t of p.tags) acc[t] = (acc[t] ?? 0) + 1;
+            return acc;
+        }, {})
+    );
+
+    function setTag(tag: string) {
+        activeTag = activeTag === tag ? null : tag;
+        activeProject = null;
+    }
+
+    function setProject(project: string) {
+        activeProject = activeProject === project ? null : project;
+        activeTag = null;
+    }
+
+    function clearFilters() {
+        activeTag = null;
+        activeProject = null;
+    }
+
     function toggleTheme() {
         const currentTheme = document.body.getAttribute('data-theme');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         document.body.setAttribute('data-theme', newTheme);
     }
-
-    let count = 8;
 </script>
 
 <div class="wrap">
@@ -25,7 +65,14 @@
         <hr>
         
         <p class="sectionlabel">Browse by tag</p>
-        <div class="tags" id="tags"></div>
+        <div class="tags">
+            {#each Object.entries(tagCounts) as [tag, ct]}
+                <button class="tagbtn" class:on={activeTag === tag} onclick={() => setTag(tag)}>
+                    <span class:on={activeTag === tag}>{tag}</span>
+                    <span class="ct">{ct}</span>
+                </button>
+            {/each}
+        </div>
 
         <hr>
 
@@ -38,26 +85,59 @@
     <!--========== MAIN ==========-->
     <main>
         <header>
-            <p class="intro">I'm <b>Golly</b> - I build games and web things, then write up what I learned along the way! Consider everything here a plant; some are just starting to grow, some have been growing for a while, and some may need a little tending.</p>
+            <p class="intro">I'm <b>Golly</b>! I build games and web things, then write up what I learned along the way. Consider everything here a plant; some are just starting to grow, some have been growing for a while, and some may need a little tending.</p>
         </header>
 
         <div class="ticker">
             <span class="tlabel">NOW TENDING ▸ </span>
             <div class="tending">
-                <span class="tend" data-project="bracket-game" title="filter posts about bracket-game"><span class="stagedot stage-growing"></span><span class="nm">bracket-game</span></span>
+                {#each [...new Set(posts.filter(p => p.stage === 'growing' && p.project).map(p => p.project))] as project}
+                    <button class="tend" class:on={activeProject === project} title="filter posts about {project}" onclick={() => setProject(project)}>
+                        <span class="stagedot stage-growing"></span>
+                        <span class="nm">{project}</span>
+                    </button>
+                {/each}
             </div>
         </div>
 
         <section class="index">
             <div class="indexhead">
-                <h2>The Index <span class="count" id="count">- { count } entries</span></h2>
+                <h2>The Index <span class="count">- {count} entries</span></h2>
             </div>
             <hr class="indexrule">
-            <div id="banner" class="filterbanner" style="display:none"></div>
 
-            <div class="rows" id="row"></div>
-            <div class="cards" id="cards"></div>
-            <div class="empty" id="empty" style="display: none">nothing growing here yet, check back later for new sprouts!</div>
+            {#if activeTag || activeProject}
+                <div class="filterbanner">
+                    <span class="lbl">Filtering by </span>
+                    <span class="val">
+                        {activeTag ?? activeProject}
+                    </span>
+                    <button class="clear" onclick={clearFilters}>✕ clear</button>
+                </div>
+            {/if}
+
+            {#if filtered.length === 0}
+                <div class="empty">nothing growing here yet, check back later for new sprouts!</div>
+            {:else}
+                <div class="rows">
+                    {#each filtered as post}
+                        <a class="row" href="/posts/{post.slug}">
+                            <span class="rowdate">{post.long}</span>
+                            <span>
+                                <span class="stagedot stage-{post.stage}"></span>
+                                <span class="rowtitle">{post.title}</span>
+                                <span class="rowex">{post.excerpt}</span>
+                                <span class="rowtags">
+                                    {#each post.tags as tag}
+                                        <span class="rowtag">{tag}</span>
+                                    {/each}
+                                </span>
+                            </span>
+
+                        </a>
+                    {/each}
+                </div>
+            {/if}
         </section>
     </main>
 </div>
@@ -424,12 +504,6 @@
         }
     }
 
-    [data-listing="cards"] .rows {
-        display: none;
-    }
-    [data-listing="rows"] .cards {
-        display: none;
-    }
     .rows {
         display: flex;
         flex-direction: column;
@@ -440,13 +514,84 @@
         grid-template-columns: 78px 1fr auto;
         gap: 22px;
         align-items: baseline;
-        padding: var(--rowpad) 12px;
+        padding: 12px 12px;
         border-bottom: 1.5px solid var(--line);
         position: relative;
         transition: background .12s;
+        color: var(--ink);
+        text-decoration: none;
     }
 
+    .row:hover {
+        background:color-mix(in oklab, var(--accent) 6%, transparent)
+    }
 
+    .rowdate {
+        font-family: var(--mono);
+        font-size: 12px;
+        color: var(--ink-3);
+        padding-top: 3px;
+        white-space: nowrap;
+    }
+
+    .rowtitle {
+        font-family: var(--mono);
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 1.3;
+        color: var(--ink);
+        display: inline;
+    }
+
+    .row:hover .rowtitle {
+        color: var(--accent);
+    }
+
+    .rowtags {
+        display: flex;
+        gap: 9px;
+        margin-top: 9px;
+    }
+
+    .rowtag {
+        font-family: var(--mono);
+        font-size: 12px;
+        color: var(--ink-3);
+    }
+
+    .rowtag::before {
+        content: "#"; 
+        opacity: .6;
+    }
+
+    .rowex {
+        display: block;
+        font-size: 15px;
+        line-height: 1.5;
+        color: var(--ink-2);
+        margin-top: 5px;
+        max-width: 560px;
+    }
+
+    .stagedot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        flex: none;
+        display: inline-block;
+    }
+
+    .stage-seedling  { background: #d6c391 }
+    .stage-growing   { background: #9bb05f }
+    .stage-evergreen { background: #5f8344 }
+    .stage-neglected { background: #d6a866 }
+
+    .empty {
+        font-family: var(--mono);
+        font-size: 13px;
+        color: var(--ink-3);
+        padding: 32px 12px;
+    }
 
     /* ========== RESPONSIVENESS =========== */
     @media (max-width: 880px) {
