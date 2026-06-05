@@ -424,7 +424,29 @@
         }
     }
 
-    
+    [data-listing="cards"] .rows {
+        display: none;
+    }
+    [data-listing="rows"] .cards {
+        display: none;
+    }
+    .rows {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .row {
+        display: grid;
+        grid-template-columns: 78px 1fr auto;
+        gap: 22px;
+        align-items: baseline;
+        padding: var(--rowpad) 12px;
+        border-bottom: 1.5px solid var(--line);
+        position: relative;
+        transition: background .12s;
+    }
+
+
 
     /* ========== RESPONSIVENESS =========== */
     @media (max-width: 880px) {
