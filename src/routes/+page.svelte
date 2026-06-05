@@ -44,7 +44,7 @@
         <div class="ticker">
             <span class="tlabel">NOW TENDING ▸ </span>
             <div class="tending">
-                <span class="tend"><span class="stagedot stage-growing"></span><span class="nm">bracket-game</span></span>
+                <span class="tend" data-project="bracket-game" title="filter posts about bracket-game"><span class="stagedot stage-growing"></span><span class="nm">bracket-game</span></span>
             </div>
         </div>
 
@@ -52,6 +52,12 @@
             <div class="indexhead">
                 <h2>The Index <span class="count" id="count">- { count } entries</span></h2>
             </div>
+            <hr class="indexrule">
+            <div id="banner" class="filterbanner" style="display:none"></div>
+
+            <div class="rows" id="row"></div>
+            <div class="cards" id="cards"></div>
+            <div class="empty" id="empty" style="display: none">nothing growing here yet, check back later for new sprouts!</div>
         </section>
     </main>
 </div>
@@ -294,6 +300,23 @@
             }
         }
 
+        .tend:hover {
+            background: rgba(255,250,234,.08);
+        }
+
+        .tend:hover .nm {
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .tend .on {
+            background: color-mix(in oklab, var(--accent) 38%, transparent)
+        }
+
+        .tend.on .nm {
+            color: #fff8ee;
+        }
+
         .stagedot {
             width: 8px;
             height: 8px;
@@ -336,7 +359,72 @@
                 letter-spacing: 0;
             }
         }
+
+        .filterrow {
+            display: flex;
+            gap: 7px;
+            flex-wrap: wrap;
+        }
+
+        .fchip {
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--ink-2);
+            border: 1.5px solid var(--line-2);
+            background: transparent;
+            padding: 4px 11px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: border-color .12s, color .12s, font-weight .12s, background .12s;
+        }
+
+        .fchip:hover {
+
+        }
     }
+
+    .indexrule {
+        height: 1.5px;
+        background: var(--line-2);
+        margin: 14px 0 4px;
+        border: none;
+    }
+
+    .filterbanner {
+        .lbl {
+            color: var(--accent);
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .val {
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .clear {
+            margin-left: auto;
+            appearance: none;
+            background: none;
+            border: none;
+            color: var(--ink-2);
+            cursor: pointer;
+            font: inherit;
+            padding: 3px 8px;
+            border-radius: 5px;
+        }
+
+        .clear:hover {
+            background: rgba(0,0,0,.06);
+            color: var(--accent);
+        }
+    }
+
+    
 
     /* ========== RESPONSIVENESS =========== */
     @media (max-width: 880px) {
