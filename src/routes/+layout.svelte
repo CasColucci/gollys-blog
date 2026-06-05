@@ -9,3 +9,12 @@
 </svelte:head>
 
 {@render children()}
+
+<style>
+	@import '../styles.css';
+
+	body {
+		background-color: var(--white);
+		color: var(--dark-blue);
+	}
+</style>
