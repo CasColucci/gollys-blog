@@ -7,6 +7,7 @@
 </script>
 
 <div class="wrap">
+    <!--========== SIDEBAR ==========-->
     <aside class="sidebar">
         <div class="brand">
             <span class="wordmark">Golly's<br><b>Garden</b></span>
@@ -18,10 +19,33 @@
             <a href=""><span class="navicon">@</span>about</a>
             <a href=""><span class="navicon">+</span>rss</a>
         </nav>
+
+        <hr>
+        
+        <p class="sectionlabel">Browse by tag</p>
+        <div class="tags" id="tags"></div>
+
+        <hr>
+
+        <div class="elsewhere">
+            <p class="sectionlabel">Elsewhere</p>
+            <a href="https://github.com/CasColucci">github <span class="arrow">→</span></a>
+        </div>
     </aside>
+
+    <!--========== MAIN ==========-->
+    <main>
+        <header class="masthead">
+            <p class="intro">I'm <b>Golly</b> - I build games and web things, then write up what I learned along the way! Consider everything here a plant; some are just starting to grow, some have been growing for a while, and some may need a little tending.</p>
+        </header>
+    </main>
 </div>
 
 <style>
+    h1, h2, h3 {
+        font-family: var(--pixel);
+    }
+
     .wrap{
         position:relative; 
         z-index:1; 
@@ -31,10 +55,8 @@
         margin:0 auto; 
         min-height:100vh
     }
-    h1, h2, h3 {
-        font-family: var(--pixel);
-        font-size: 64px;
-    }
+
+    /* ========== SIDEBAR ========== */
 
     .sidebar{
         border-right:1.5px solid var(--line-2);
@@ -98,9 +120,69 @@
             background: var(--accent-soft);
             color: var(--accent);
             font-weight: 700;
+            .navicon {
+                color: var(--accent);
+            }
         }
         a:hover {
             background: var(--accent-soft);
+        }
+    }
+
+    hr {
+        height: 1.5px;
+        background: var(--line);
+        margin: 0 2px 22px; 
+        border: none;
+    }
+
+    .sectionlabel {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--ink-3);
+        margin: 0 0 11px 2px;
+    }
+
+    .tags {
+        display: flex;
+        flex-direction: column;
+        gap: 1px;
+        margin-bottom: 24px;
+    }
+
+    .tag:hover {
+        background: var(--accent-soft);
+        color: var(--ink);
+    }
+
+    .elsewhere {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-top: auto;
+
+        a {
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--ink-2);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        a .arrow {
+            color: var(--ink-3);
+            transition: transform .12s;
+        }
+
+        a:hover {
+            color: var(--accent);
+            .arrow {
+                transform: translateX(3px);
+                color: var(--accent);
+            }
         }
     }
 </style>
