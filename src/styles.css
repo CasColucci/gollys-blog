@@ -7,6 +7,29 @@
   --white: #ffffff;
 }
 
+@font-face {
+  font-family: "ElmsSans";
+  src: url("src/lib/assets/fonts/ElmsSans-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "ElmsSansItalic";
+  src: url("src/lib/assets/fonts/ElmsSans-Italic-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "SpicyRice";
+  src: url("src/lib/assets/fonts/SpicyRice-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* Box sizing rules */
 *,
 *::before,
@@ -30,7 +53,7 @@ dd {
 
 /* Set Body Background Color */
 body {
-  background-color: var(--clr-dark-blue);
+  background-color: var(--dark-blue);
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
@@ -85,5 +108,59 @@ select {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+body {
+  margin: auto;
+  padding: 20px;
+  max-width: 70ch;
+  font-family: "ElmsSans", serif;
+}
+
+body[data-theme="dark"] {
+  background-color: var(--dark-blue);
+  color: var(--light-blue);
+  h1,
+  h2,
+  h3 {
+    color: var(--white);
+  }
+}
+
+body[data-theme="light"] {
+  background-color: var(--white);
+  color: var(--dark-blue);
+
+  h1,
+  h2,
+  h3 {
+    color: var(--dark-blue);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--dark-blue);
+    color: var(--white);
+  }
+
+  h1,
+  h2,
+  h3 {
+    color: var(--white);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: var(--white);
+    color: var(--dark-blue);
+  }
+
+  h1,
+  h2,
+  h3 {
+    color: var(--dark-blue);
   }
 }
