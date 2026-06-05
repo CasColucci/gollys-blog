@@ -138,10 +138,9 @@ select {
 }
 
 body {
-  margin: auto;
-  padding: 20px;
-  max-width: 70ch;
-  font-family: "ElmsSans", serif;
+  font-family: var(--mono);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
 }
 
 body[data-theme="dark"] {
