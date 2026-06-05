@@ -13,7 +13,10 @@
         </div>
         <p class="tagline">a digital garden of games<br>&amp; little web experiments</p>
         <nav>
-
+            <a href="" class="current"><span class="navicon">~</span>home</a>
+            <a href=""><span class="navicon">»</span>posts</a>
+            <a href=""><span class="navicon">@</span>about</a>
+            <a href=""><span class="navicon">+</span>rss</a>
         </nav>
     </aside>
 </div>
@@ -50,7 +53,7 @@
     .wordmark{
         font-family: var(--pixel); 
         font-weight: 700; 
-        font-size:48px; 
+        font-size:36px; 
         line-height:1.05; 
         letter-spacing:.5px;
         b {
@@ -67,6 +70,37 @@
     }
     
     nav {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        padding: 7px 11px;
+        margin-bottom: 24px;
+        a {
+            font-family: var(--mono);
+            font-size: 14px;
+            padding: 7px 11px;
+            border-radius: 7px;
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            color: var(--ink);
+            position: relative;
+            transition: background .12s, color .12s;
 
+            .navicon {
+                color: var(--ink-3);
+                font-size: 12px;
+                width: 14px;
+            }
+        }
+
+        .current {
+            background: var(--accent-soft);
+            color: var(--accent);
+            font-weight: 700;
+        }
+        a:hover {
+            background: var(--accent-soft);
+        }
     }
 </style>
