@@ -3,6 +3,7 @@
 </script>
 
 <article class="post">
+    <a href="/">← Back Home</a>
     {@render children()}
 </article>
 

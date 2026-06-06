@@ -20,7 +20,7 @@
 		<nav>
 			<a href="/" class="current"><span class="navicon">~</span>home</a>
 			<a href=""><span class="navicon">»</span>posts</a>
-			<a href=""><span class="navicon">@</span>about</a>
+			<a href="/about"><span class="navicon">@</span>about</a>
 			<a href=""><span class="navicon">+</span>rss</a>
 		</nav>
 
