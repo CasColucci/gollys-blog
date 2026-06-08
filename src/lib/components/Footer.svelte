@@ -1,6 +1,6 @@
 <footer>
     <span class="sprout">planted &amp; tended with care · 2026</span>
-    <span><a href="#">rss</a> · <a href="#">github</a> · <a href="#">back to top ↑</a></span>
+    <span><a href="/rss.xml">rss</a> · <a href="https://github.com/CasColucci/gollys-blog">github</a> · <a href="#">back to top ↑</a></span>
 </footer>
 
 <style>

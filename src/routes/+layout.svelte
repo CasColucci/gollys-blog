@@ -25,7 +25,7 @@
 		<nav>
 			<a href="/" class:current={isCurrent('/')}><span class="navicon">~</span>home</a>
 			<a href="/about" class:current={isCurrent('/about')}><span class="navicon">@</span>about</a>
-			<a href="" class:current={isCurrent('/rss')}><span class="navicon">+</span>rss</a>
+			<a href="/rss.xml" class:current={isCurrent('/rss')}><span class="navicon">+</span>rss</a>
 		</nav>
 
 		<hr>

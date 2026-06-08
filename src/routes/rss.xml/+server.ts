@@ -4,11 +4,11 @@ export async function GET({ fetch }) {
   const response = await fetch("/api/posts");
   const posts: Post[] = await response.json();
 
-  const website = "http://zegollygosh.com/";
+  const website = "http://zegollygosh.com";
   const feedTitle = "Golly Gosh - Digital Garden Blog";
   const feedDescription =
     "Various fun projects, musings, and updates from Golly's Garden.";
-  const feedLink = "http://zegollygosh.com/";
+  const feedLink = "http://zegollygosh.com";
 
   const headers = { "Content-Type": "application/xml" };
 
@@ -24,7 +24,7 @@ export async function GET({ fetch }) {
             (post) => `
 						<item>
 							<title>${post.title}</title>
-							<description>${post.description}</description>
+							<description>${post.excerpt}</description>
 							<link>${feedLink}/${post.slug}</link>
 							<guid isPermaLink="true">${feedLink}/${post.slug}</guid>
 							<pubDate>${new Date(post.date).toUTCString()}</pubDate>

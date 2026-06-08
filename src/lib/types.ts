@@ -1,10 +1,14 @@
-export type Categories = "sveltekit" | "svelte";
+export type Stage = "seedling" | "growing" | "evergreen" | "neglected";
 
 export type Post = {
+  n: number;
   title: string;
   slug: string;
-  description: string;
   date: string;
-  categories: Categories[];
-  published: boolean;
+  long: string;
+  excerpt: string;
+  tags: string[];
+  project: string;
+  stage: Stage;
+  img: boolean;
 };
