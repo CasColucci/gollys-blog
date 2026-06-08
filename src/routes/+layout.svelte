@@ -231,8 +231,12 @@
 
 	/* ========== RESPONSIVENESS =========== */
 	@media (max-width: 880px) {
+
+		
 		.wrap {
 			grid-template-columns: 1fr;
+			align-items: start;
+			min-height: 0;
 		}
 
 		.sidebar {
@@ -247,8 +251,18 @@
 			padding: 20px 22px;
 		}
 
-		.tagline, .sectionlabel, .divider, .elsewhere {
+		.tagline, .sectionlabel, .divider, .elsewhere{
 			display: none;
+		}
+
+		.tags {
+			flex-direction: row;
+			flex-wrap: wrap;
+			margin-bottom: 0;
+		}
+
+		.tagbtn {
+			width: auto;
 		}
 
 		nav {
