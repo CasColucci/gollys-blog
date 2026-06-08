@@ -1,10 +1,13 @@
 <script lang="ts">
+  import Footer from '$lib/components/Footer.svelte';
+
     let { children } = $props();
 </script>
 
 <article class="post">
     <a href="/">← Back Home</a>
     {@render children()}
+    <Footer />
 </article>
 
 <style>
