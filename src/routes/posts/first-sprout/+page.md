@@ -5,7 +5,7 @@ date: "2026-06-06"
 long: "June 5, 2026"
 excerpt: "This is a digital garden."
 tags: ["meta", "writing"]
-project: ""
+project: "This is a digital garden. Sort of a blog (as it has blog-shaped posts), somewhat a portfolio (some work lives here), but definitely a garden."
 stage: "seedling"
 img: false
 ---

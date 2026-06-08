@@ -2,8 +2,13 @@
 	import favicon from '$lib/assets/favicon.svg';
 	import '../styles.css';
 	import { sidebarTagPanel } from '$lib/sidebar.svelte';
+	import { page } from '$app/state';
 
 	let { children } = $props();
+
+	function isCurrent(href: string) {
+		return href === '/' ? page.url.pathname === '/' : page.url.pathname.startsWith(href);
+	}
 </script>
 
 <svelte:head>
@@ -18,10 +23,10 @@
 		</div>
 		<p class="tagline">a digital garden of games<br>&amp; little web experiments</p>
 		<nav>
-			<a href="/" class="current"><span class="navicon">~</span>home</a>
-			<a href=""><span class="navicon">»</span>posts</a>
-			<a href="/about"><span class="navicon">@</span>about</a>
-			<a href=""><span class="navicon">+</span>rss</a>
+			<a href="/" class:current={isCurrent('/')}><span class="navicon">~</span>home</a>
+			<a href="" class:current={isCurrent('/posts')}><span class="navicon">»</span>posts</a>
+			<a href="/about" class:current={isCurrent('/about')}><span class="navicon">@</span>about</a>
+			<a href="" class:current={isCurrent('/rss')}><span class="navicon">+</span>rss</a>
 		</nav>
 
 		<hr>

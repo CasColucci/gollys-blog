@@ -1,5 +1,9 @@
 
 
+<script>
+    import Footer from "$lib/components/Footer.svelte";
+</script>
+
 <main>
     <h1>Hi! I'm <span class="highlight">Golly</span>.</h1>
     <p class="about-lead">Programmer, tinkerer, perpetual project-starter. I like making games and web things, and I'm trying to write up what I learn!</p>
@@ -23,22 +27,23 @@
     <p class="about-h">Find me elsewhere!</p>
     <div class="biglinks">
         <a href="#" class="biglink">
-            <span><span class="bl-t">GitHub</span><span class="bl-s">Check out my code, half-finished and otherwise!</span></span>
+            <span><span class="bl-t">GitHub</span><br><span class="bl-s">Check out my code, half-finished and otherwise!</span></span>
             <span class="ar">→</span>
         </a>
         <a href="https://cascolucci.com/" class="biglink">
-            <span><span class="bl-t">My Freelancing Site</span><span class="bl-s">Feel free to contact me about any projects you're working on!</span></span>
+            <span><span class="bl-t">My Freelancing Site</span><br><span class="bl-s">Feel free to contact me about any projects you're working on!</span></span>
             <span class="ar">→</span>
         </a>
         <a href="https://bsky.app/profile/zegollygosh.bsky.social" class="biglink">
-            <span><span class="bl-t">BlueSky</span><span class="bl-s">Prefer social media? Come join me on BlueSky!</span></span>
+            <span><span class="bl-t">BlueSky</span><br><span class="bl-s">Prefer social media? Come join me on BlueSky!</span></span>
             <span class="ar">→</span>
         </a>
         <a href="mailto:golly@zegollygosh.com" class="biglink">
-            <span><span class="bl-t">Email</span><span class="bl-s">Wanna contact me the old fashioned way? Feel free to reach out!</span></span>
+            <span><span class="bl-t">Email</span><br><span class="bl-s">Wanna contact me the old fashioned way? Feel free to reach out!</span></span>
             <span class="ar">→</span>
         </a>
     </div>
+    <Footer />
 </main>
 
 <style>
@@ -207,5 +212,23 @@
 
     .biglink:hover .bl-t {
         color: var(--accent);
+    }
+
+    @media(max-width: 880px) {
+        main {
+            padding: 28px 22px 56px;
+        }
+
+        .about-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .avatar {
+            height: 200px;
+        }
+
+        .biglinks {
+            grid-template-columns: 1fr;
+        }
     }
 </style>
