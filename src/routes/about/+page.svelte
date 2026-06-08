@@ -8,11 +8,12 @@
     <h1>Hi! I'm <span class="highlight">Golly</span>.</h1>
     <p class="about-lead">Programmer, tinkerer, perpetual project-starter. I like making games and web things, and I'm trying to write up what I learn!</p>
     <div class="about-grid">
-        <div class="avatar">HOLDING</div>
+        <div class="avatar"><img src="/Avatar.png" alt="My Icon"></div>
         <div class="about-bio">
             <p>Writing, programming, and generally being busy! I love experimenting and seeing what I can do.</p>
             <p>Aside from programming, I love animals and creating things for people to enjoy. I love thinking outside the box.</p>
-            <p>If something here is useful, broken, or sparks an idea, feel free to <a href="#">say hi</a>!</p>
+            <p>If something here is useful, broken, or sparks an idea, feel free to <a href="mailto:golly@zegollygosh.com">say hi</a>!</p>
+            <p>(Also this avatar is a picrew done by <a href="https://picrew.me/en/image_maker/112842">viiolaceus</a>!)</p>
         </div>
     </div>
 
@@ -92,6 +93,12 @@
         align-items: center;
         justify-content: center;
         text-align: center;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     }
 
     .about-bio {
@@ -218,17 +225,18 @@
         main {
             padding: 28px 22px 56px;
         }
+        .biglinks {
+            grid-template-columns: 1fr;
+        }
+    }
 
+    @media(max-width: 500px) {
         .about-grid {
             grid-template-columns: 1fr;
         }
 
         .avatar {
             height: 200px;
-        }
-
-        .biglinks {
-            grid-template-columns: 1fr;
         }
     }
 </style>

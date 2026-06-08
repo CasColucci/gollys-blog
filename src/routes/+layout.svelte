@@ -12,6 +12,7 @@
 </script>
 
 <svelte:head>
+	<title>Golly's Garden</title>
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
