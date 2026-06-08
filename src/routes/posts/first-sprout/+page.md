@@ -3,16 +3,16 @@ n: 1
 title: "My First Sprout: Welcome to the Garden"
 date: "2026-06-06"
 long: "June 5, 2026"
-excerpt: "This is a digital garden."
+excerpt: "This is a digital garden. Sort of a blog (as it has blog-shaped posts), somewhat a portfolio (some work lives here), but definitely a garden."
 tags: ["meta", "writing"]
-project: "This is a digital garden. Sort of a blog (as it has blog-shaped posts), somewhat a portfolio (some work lives here), but definitely a garden."
+project: ""
 stage: "seedling"
 img: false
 ---
 
 # My First Sprout: Welcome to the Garden
 
-This is a digital garden. Sort of a blog (as it has blog-shaped posts), somewhat a portfolio (some work lives here), but definitely a garden. And as <i>my</i> garden, it has plants at various stages of growth and attention.
+This is a digital garden. Sort of a blog (as it has blog-shaped posts), somewhat a portfolio (some work lives here), but definitely a garden. And as <i>my</i> garden, it has plants at various stages of growth and attention. The stage markers are all for the stage that the project or topic is on for me at the time of posting.
 <br>
 The stages you'll see on posts:
 
