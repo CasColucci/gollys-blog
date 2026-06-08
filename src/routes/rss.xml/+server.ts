@@ -25,8 +25,8 @@ export async function GET({ fetch }) {
 						<item>
 							<title>${post.title}</title>
 							<description>${post.excerpt}</description>
-							<link>${feedLink}/${post.slug}</link>
-							<guid isPermaLink="true">${feedLink}/${post.slug}</guid>
+							<link>${feedLink}/posts/${post.slug}</link>
+							<guid isPermaLink="true">${feedLink}/posts/${post.slug}</guid>
 							<pubDate>${new Date(post.date).toUTCString()}</pubDate>
 						</item>
 					`,
