@@ -1,7 +1,7 @@
 ---
 n: 2
 title: "Bracket Game: What It Is and Why I'm Building It"
-date: "2026-06-08"
+date: "2026-06-08T13:00:00-05:00"
 long: "June 8, 2026"
 excerpt: "What is this bracket game I keep talking about? And what's the plan with it anyway? Here's my explanation to catch you up to speed on where I'm at with it, and where I'm going. "
 tags: ["gamedev", "react", "asp.net", "signalr"]

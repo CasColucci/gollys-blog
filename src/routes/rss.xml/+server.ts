@@ -5,7 +5,7 @@ export async function GET({ fetch }) {
   const posts: Post[] = await response.json();
 
   const website = "http://zegollygosh.com";
-  const feedTitle = "Golly Gosh - Digital Garden Blog";
+  const feedTitle = "Golly Gosh - Golly's Garden";
   const feedDescription =
     "Various fun projects, musings, and updates from Golly's Garden.";
   const feedLink = "http://zegollygosh.com";

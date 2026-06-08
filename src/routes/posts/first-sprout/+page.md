@@ -1,7 +1,7 @@
 ---
 n: 1
 title: "My First Sprout: Welcome to the Garden"
-date: "2026-06-06"
+date: "2026-06-06T08:00:00-05:00"
 long: "June 5, 2026"
 excerpt: "This is a digital garden. Sort of a blog (as it has blog-shaped posts), somewhat a portfolio (some work lives here), but definitely a garden."
 tags: ["meta", "writing"]
