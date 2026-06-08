@@ -29,7 +29,7 @@ With the above two ideas in my head, I set forth on this quest to figure out jus
 
 ## What's The Plan?
 
-I had attempted to make something similar in the past. My unfinished tool "Dungeons and Dreams" was a test of trying to make web sockets work in a very JackBox-fashion for a GM and their players.
+I had attempted to make something similar in the past. My unfinished tool "Dungeons and Dreams" was a test of trying to make web sockets work in a lobby for a GM and their players.
 <br>
 It was a fun project, to be sure, but one I had very little knowledge behind. It's been about five years since then, so I'm glad to say I've learned quite a bit in the interim. Servers, for example, are no longer this horrifyingly scary concept that I stumbled through like a newborn deer.
 <br><br>
@@ -52,13 +52,13 @@ The planned flow of the application is this:
 ## What's The Stack?
 
 <br>
-For the backend, I'm a C# developer first and foremost so ASP.NET was a no-brainer. I chose to go with a minimal API to keep things light. I don't have plans for anything especially robust.
+For the backend, I'm a C# developer first and foremost so ASP.NET was a no-brainer. I chose to go with a minimal API to keep things light. I don't need anything exceptionally complex with extra structure. 
 <br><br>
 As for the frontend, I'm a big fan of SvelteKit/Svelte (that's what this blog is made in!). However, React is something I'm very familiar with from using it often in college, yet I haven't touched it in a while. I figured it was time to stretch my React legs again.
 <br><br>
 For the database-layer, I am most familiar with Microsoft SQL Server, but have been very interested in PostgreSQL and have used it on a few test projects. That was my choice, with Entity Framework Core for ORM.
 <br><br>
-Lastly, for my real-time web functionality, I went with SignalR. It seems like the most straightforward option given my current tech stack, and it's one I have some minor experience with. 
+Lastly, for my real-time web functionality, I chose the obvious option of SignalR. 
 <br><br>
 
 ## What's Done So Far?
