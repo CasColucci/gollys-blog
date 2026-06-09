@@ -27,7 +27,7 @@
 
     <p class="about-h">Find me elsewhere!</p>
     <div class="biglinks">
-        <a href="#" class="biglink">
+        <a href="https://github.com/CasColucci" class="biglink">
             <span><span class="bl-t">GitHub</span><br><span class="bl-s">Check out my code, half-finished and otherwise!</span></span>
             <span class="ar">→</span>
         </a>
