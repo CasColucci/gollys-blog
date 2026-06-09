@@ -19,6 +19,11 @@ export async function GET({ fetch }) {
 				<description>${feedDescription}</description>
 				<link>${website}</link>
 				<atom:link href="${feedLink}/rss.xml" rel="self" type="application/rss+xml"/>
+				<image>
+					<url>${feedLink}/favicon.ico</url>
+					<title>${feedTitle}</title>
+					<link>${feedLink}</link>
+				</image>
 				${posts
           .map(
             (post) => `
